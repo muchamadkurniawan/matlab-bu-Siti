@@ -55,7 +55,7 @@ xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
 % xtickslabels({'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'})
 % title('average node of the CH')
 title('Average degree of polynomials of SN')
-xlabel('Group') 
+xlabel('The u-th session') 
 ylabel('Total degree') 
 axis([1 15 0 100])
 legend({'d = 1','d = 2','d = 3','d = 4','d = 5','d = 6','d = 7','d = 8','d = 9','d = 10'},'Location','best',...
