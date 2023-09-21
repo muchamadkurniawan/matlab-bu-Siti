@@ -22,10 +22,12 @@ for i=1:n_session
 end
 
 %% session for single group
-n1 = n
+n_sisa = []
+n1 = n;
 for i=1:n_session
    n1 = n1 - rand_rs(i); %pengurangan node
    n_single(i) = n1;
+   n_sisa(i) = n1;
 end
 
 %% session for grup 2..10
@@ -46,39 +48,46 @@ for n_grup=2:10
 end
 
 %% PLOTTING
+for i=1:length(n_sisa)
+    str(i)=string(n_sisa(i));
+end
+str;
 figure,
 plot([1:n_session],n_single,'-pentagram','Color','r')
 hold on
 plot([1:n_session],n_multi,'-o')
 grid on
+celli={};
+celli=str;
+xticklabels(celli)
 xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
 % xtickslabels({'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'})
 % title('average node of the CH')
-title('Average degree of polynomials of SN')
-xlabel('The u-th session') 
-ylabel('Total degree') 
-axis([1 15 0 100])
+% title('Average degree of polynomials of SN')
+xlabel('Number of SN')
+ylabel('Average degree')
+% axis([1 15 0 100])
 legend({'d = 1','d = 2','d = 3','d = 4','d = 5','d = 6','d = 7','d = 8','d = 9','d = 10'},'Location','best',...
     'NumColumns',2)
 hold off
-
-figure,
-subplot(1,2,1)
-n2 = cell_grup{2}'
-plot([1:n_session+1],n2(:,1:end)','-o')
-title('Average degree of polynomials of SN (d=3)')
-xlabel('The u-th session') 
-ylabel('Total degree') 
-grid on
-legend({'sub-group 1','sub-group 2','sub-group 3'},'Location','best')
-xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
-
-subplot(1,2,2)
-n3 = cell_grup{3}'
-plot([1:n_session+1],n3(:,1:end)','-o')
-title('Average degree of polynomials of SN (d=4)')
-xlabel('The u-th session') 
-ylabel('Total degree') 
-grid on
-legend({'sub-group 1','sub-group 2','sub-group 3','sub-group 4'},'Location','best')
-xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
+% 
+% figure,
+% subplot(1,2,1)
+% n2 = cell_grup{2}'
+% plot([1:n_session+1],n2(:,1:end)','-o')
+% title('Average degree of polynomials of SN (d=3)')
+% xlabel('The u-th session') 
+% ylabel('Total degree') 
+% grid on
+% legend({'sub-group 1','sub-group 2','sub-group 3'},'Location','best')
+% xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
+% 
+% subplot(1,2,2)
+% n3 = cell_grup{3}'
+% plot([1:n_session+1],n3(:,1:end)','-o')
+% title('Average degree of polynomials of SN (d=4)')
+% xlabel('The u-th session') 
+% ylabel('Total degree') 
+% grid on
+% legend({'sub-group 1','sub-group 2','sub-group 3','sub-group 4'},'Location','best')
+% xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])

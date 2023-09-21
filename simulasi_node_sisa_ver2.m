@@ -54,20 +54,24 @@ for n_grup=2:10
 end
 
 %% PLOTTING
+for i=1:length(n_single)
+    str(i)=string(n_single(i));
+end
+str;
 figure,
 plot([1:n_session],n_single,'-pentagram','Color','r')
 hold on
 plot([1:n_session],n_multi,'-o')
 grid on
-xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
-% xtickslabels({'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'})
-% title('average node of the CH')
-title('Total degree of polynomials of CH')
-xlabel('The u-th session') 
+% title('Total degree of polynomials of CH')
+xlabel('Number of SN') 
 ylabel('Total degree') 
-% axis([1 15 0 100])
-% legend({'d = 1','d = 2','d = 3','d = 4','d = 5','d = 6','d = 7','d = 8','d = 9','d = 10'},'Location','northeast',...
-%     'NumColumns',2)
+xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
+celli={};
+celli=str;
+xticklabels(celli)
+legend({'d = 1','d = 2','d = 3','d = 4','d = 5','d = 6','d = 7','d = 8','d = 9','d = 10'},'Location','northeast',...
+    'NumColumns',2)
 hold off
 
 % figure,
