@@ -1,4 +1,4 @@
-%simulasi node sisa dengan pengkalian
+%simulasi node sisa (rata-rata)
 
 n = 100;
 n_session = 15;
@@ -22,12 +22,12 @@ for i=1:n_session
 end
 
 %% session for single group
-n_sisa=[]
+n_sisa = []
 n1 = n;
 for i=1:n_session
    n1 = n1 - rand_rs(i); %pengurangan node
-   n_single(i) = n1/2*(1+n1);
-   n_sisa(i)=n1;
+   n_single(i) = n1;
+   n_sisa(i) = n1;
 end
 
 %% session for grup 2..10
@@ -36,21 +36,13 @@ for n_grup=2:10
     arr_grup = split(n,n_grup);
     arrTemp =  zeros(n_session,n_grup);
     arrTemp(1,:) = arr_grup;
-    
     for i=1:n_session 
         for j=1:rand_rs(i)
             rand_pos = randi([1 n_grup]); %random posisi grup 
             arr_grup(rand_pos) = arr_grup(rand_pos)-1;
         end
         arrTemp(i+1,:) = arr_grup;
-        
-        %loop each grup
-        arr_totDeg_grup = zeros(n_grup, 1);
-        for j=1:n_grup
-            arr_totDeg_grup(j) = arr_grup(j)/2 *(1+arr_grup(j)) ;
-        end
-    
-        n_multi(n_grup-1,i) = sum(arr_totDeg_grup)/n_grup;
+        n_multi(n_grup-1,i) = sum(arr_grup)/n_grup;
     end
     cell_grup{n_grup-1} = arrTemp;
 end
@@ -65,20 +57,20 @@ plot([1:n_session],n_single,'-pentagram','Color','r')
 hold on
 plot([1:n_session],n_multi,'-o')
 grid on
-xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
 celli={};
 celli=str;
 xticklabels(celli)
+xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
 % xtickslabels({'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'})
 % title('average node of the CH')
-% title('Average of multiplication requirement of SN')
-xlabel('Number of SN') 
-ylabel('Average of multiplication') 
+% title('Average degree of polynomials of SN')
+xlabel('Number of SNs')
+ylabel('Average degree')
 % axis([1 15 0 100])
-legend({'d = 1','d = 2','d = 3','d = 4','d = 5','d = 6','d = 7','d = 8','d = 9','d = 10'},'Location','northeast',...
+legend({'d = 1','d = 2','d = 3','d = 4','d = 5','d = 6','d = 7','d = 8','d = 9','d = 10'},'Location','best',...
     'NumColumns',2)
 hold off
-
+% 
 % figure,
 % subplot(1,2,1)
 % n2 = cell_grup{2}'

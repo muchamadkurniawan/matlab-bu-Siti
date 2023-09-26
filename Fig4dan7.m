@@ -59,13 +59,15 @@ for i=1:length(n_single)
 end
 str;
 figure,
-plot([1:n_session],n_single,'-pentagram','Color','r')
+plot([1:n_session],n_single,'-','Color',[0.9 0.9 0],'LineWidth',2.5)
 hold on
-plot([1:n_session],n_multi,'-o')
+plot([1:n_session],n_multi(1,:),'--','Color',[0 1 1],'LineWidth',1.5)
+hold on
+plot([1:n_session],n_multi(2,:),'-.','LineWidth',1,'Color','r')
 grid on
 % title('Total degree of polynomials of CH')
-xlabel('Number of SN') 
-ylabel('Total degree') 
+xlabel('Number of SNs') 
+ylabel('Total sum of polynomial degrees') 
 xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
 celli={};
 celli=str;
@@ -74,23 +76,23 @@ legend({'d = 1','d = 2','d = 3','d = 4','d = 5','d = 6','d = 7','d = 8','d = 9',
     'NumColumns',2)
 hold off
 
-% figure,
-% subplot(1,2,1)
-% n2 = cell_grup{2}'
-% plot([1:n_session+1],n2(:,1:end)','-o')
+figure,
+subplot(1,2,1)
+n2 = cell_grup{2}'
+plot([1:n_session+1],n2(:,1:end)','-o')
 % title('Average degree of polynomials of SN (d=3)')
-% xlabel('The u-th session') 
-% ylabel('Total degree') 
-% grid on
-% legend({'sub-group 1','sub-group 2','sub-group 3'},'Location','best')
-% xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
-% 
-% subplot(1,2,2)
-% n3 = cell_grup{3}'
-% plot([1:n_session+1],n3(:,1:end)','-o')
+xlabel('Session index') 
+ylabel('Total degree') 
+grid on
+legend({'sub-group 1','sub-group 2','sub-group 3'},'Location','best')
+xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
+
+subplot(1,2,2)
+n3 = cell_grup{3}'
+plot([1:n_session+1],n3(:,1:end)','-o')
 % title('Average degree of polynomials of SN (d=4)')
-% xlabel('The u-th session') 
-% ylabel('Total degree') 
-% grid on
-% legend({'sub-group 1','sub-group 2','sub-group 3','sub-group 4'},'Location','best')
-% xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
+xlabel('Session index') 
+ylabel('Total degree') 
+grid on
+legend({'sub-group 1','sub-group 2','sub-group 3','sub-group 4'},'Location','best')
+xticks([1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])

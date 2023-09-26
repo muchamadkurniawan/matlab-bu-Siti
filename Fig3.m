@@ -35,7 +35,7 @@ grid on
 xticks([1 2 3 4 5 6 7 8 9 10])
 % xtickslabels({'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'})
 % title('average node of the CH')
-title('Total of multiplication requirement of SN')
+% title('Total of multiplication requirement of SN')
 xlabel('d') 
 ylabel('Total multiplication') 
 % axis([1 15 0 100])

@@ -27,7 +27,7 @@ n1 = n;
 for i=1:n_session
    n1 = n1 - rand_rs(i); %pengurangan node
    n_single(i) = n1/2*(1+n1);
-   n_sisa(i) = n1;
+   n_sisa(i)=n1;
 end
 
 %% session for grup 2..10
@@ -50,7 +50,7 @@ for n_grup=2:10
             arr_totDeg_grup(j) = arr_grup(j)/2 *(1+arr_grup(j)) ;
         end
     
-        n_multi(n_grup-1,i) = sum(arr_totDeg_grup);
+        n_multi(n_grup-1,i) = sum(arr_totDeg_grup)/n_grup;
     end
     cell_grup{n_grup-1} = arrTemp;
 end
@@ -71,9 +71,9 @@ celli=str;
 xticklabels(celli)
 % xtickslabels({'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'})
 % title('average node of the CH')
-title('Total multiplication of polynomials of CH')
-xlabel('Number of SN') 
-ylabel('Total multiplication')
+% title('Average of multiplication requirement of SN')
+xlabel('Number of SNs') 
+ylabel('Average number of multiplications per sub-group') 
 % axis([1 15 0 100])
 legend({'d = 1','d = 2','d = 3','d = 4','d = 5','d = 6','d = 7','d = 8','d = 9','d = 10'},'Location','northeast',...
     'NumColumns',2)
