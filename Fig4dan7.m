@@ -65,6 +65,16 @@ plot([1:n_session],n_multi(1,:),'-','Color',[0 1 1],'LineWidth',5)
 hold on
 plot([1:n_session],n_multi(2,:),'-','LineWidth',4,'Color',[0.9 1 0])
 grid on
+plot([1:n_session],n_multi(3,:),'-','LineWidth',3,'Color',[1 0 0])
+grid on
+plot([1:n_session],n_multi(4,:),'-','LineWidth',2,'Color',[0 1 0])
+grid on
+plot([1:n_session],n_multi(5,:),'--','LineWidth',2,'Color',[0 0 1])
+grid on
+plot([1:n_session],n_multi(6,:),'-.','LineWidth',2,'Color',[0 0.5 0.5])
+grid on
+plot([1:n_session],n_multi(6,:),'-*','LineWidth',1,'Color',[0.7 0 0])
+grid on
 % title('Total degree of polynomials of CH')
 xlabel('Number of SNs') 
 ylabel('Total sum of polynomial degrees') 
